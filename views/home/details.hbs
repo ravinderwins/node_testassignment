@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{title}} <small class="float-right">{{this.date}}</small></h5>
+                <p class="card-text">{{description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <h5 class="mb-4">Answers: </h5>
+
+        {{#each answers}}
+        <div class="card mb-4">
+            <div class="card-body">
+                <p><strong>User: </strong> {{this.userName}}</p>
+                <p><strong>Date: </strong> {{this.date}}</p>
+                <p class="card-text">{{this.answer}}</p>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+
+    <div class="col-sm-12">
+        <h5 class="mb-4">Write Answer: </h5>
+
+        <div class="card mb-4 p-3">
+            <form method="POST" action="/write-answer">
+                <div class="form-group">
+                    <input type="hidden" name="id" value="{{id}}" />
+                    <textarea type="text" class="form-control" name="answer" id="answer" required="required"
+                        placeholder="Write Answer"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Write Answer</button>
+            </form>
+        </div>
+    </div>
+</div>
